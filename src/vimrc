@@ -4,6 +4,11 @@ set nu
 set autoindent
 set cindent
 set ts=4
+set shiftwidth=4
 set showmatch
 set ruler
+set mouse=a
+set wrap!
+set laststatus=2
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
