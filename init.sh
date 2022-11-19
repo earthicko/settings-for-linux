@@ -16,4 +16,7 @@ then
 else
 	write_vimrc
 fi
-	
+
+echo "Setting git configs"
+bash ./src/setup-git.sh
+
