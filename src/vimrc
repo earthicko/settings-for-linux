@@ -1,0 +1,9 @@
+syntax on
+set hlsearch
+set nu
+set autoindent
+set cindent
+set ts=4
+set showmatch
+set ruler
+
