@@ -9,18 +9,27 @@ write_with_confirm () {
 		read -p "$1 already exists. Replace? " INPUT
 		if [ "$INPUT" = "Y" ] || [ "$INPUT" = "y" ]
 		then
-			cp $1 $2
+			cp -f $2 $1
 		fi
 	else
-		cp $1 $2
+		cp $2 $1
 	fi
 }
 
-echo "Setting .vimrc in $VIMRC_DST"
-write_with_confirm $VIMRC_DST $VIMRC_SRC
+read -p "Setting .vimrc in $VIMRC_DST: continue? " INPUT
+if [ "$INPUT" = "Y" ] || [ "$INPUT" = "y" ]
+then
+	write_with_confirm $VIMRC_DST $VIMRC_SRC
+fi
 
-echo "Setting git configs"
-bash ./src/setup-git.sh
+read -p "Setting git configs: continue? " INPUT
+if [ "$INPUT" = "Y" ] || [ "$INPUT" = "y" ]
+then
+	bash ./src/setup-git.sh
+fi
 
-echo "Setting openbox config in $LUBUNTURC_DST"
-write_with_confirm $LUBUNTURC_DST $LUBUNTURC_SRC
+read -p "Setting openbox config in $LUBUNTURC_DST: continue? " INPUT
+if [ "$INPUT" = "Y" ] || [ "$INPUT" = "y" ]
+then
+	write_with_confirm $LUBUNTURC_DST $LUBUNTURC_SRC
+fi
